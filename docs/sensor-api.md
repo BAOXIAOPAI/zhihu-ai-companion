@@ -15,7 +15,8 @@ GET /api/readings/latest
 ```json
 {
   "temperature_c": 24.5,
-  "humidity_percent": 45.4
+  "humidity_percent": 45.4,
+  "soil_moisture_raw": 3224
 }
 ```
 
@@ -23,6 +24,7 @@ GET /api/readings/latest
 |---|---|---|
 | `temperature_c` | 数字 | 温度，单位 °C |
 | `humidity_percent` | 数字 | 相对湿度，单位 %RH。例如 `45.4` 表示 `45.4%` |
+| `soil_moisture_raw` | 数字（可选） | 土壤湿度传感器的 ADC 原始计数，暂未标定 |
 
 固件在传感器读取失败时返回 HTTP `503`，响应为 `{"error":"sensor_unavailable"}`。页面可以显示「暂无传感器数据」，并在下一轮继续请求。当前已验证 `200` 成功响应。
 
